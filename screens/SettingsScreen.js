@@ -505,7 +505,7 @@ export default function SettingsScreen({ navigation }) {
         <View style={[styles.section, { backgroundColor: theme.colors.card }]}>
           <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>Sobre</Text>
           <Text style={[styles.aboutText, { color: theme.colors.secondaryText }]}>
-            FilmX versão 1.0.0
+            MovieBox versão 2.3.0
           </Text>
           <Text style={[styles.aboutText, { color: theme.colors.secondaryText }]}>
             Um aplicativo para os amantes de cinema acompanharem seus filmes favoritos.
