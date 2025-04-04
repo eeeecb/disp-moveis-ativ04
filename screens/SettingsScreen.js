@@ -150,27 +150,29 @@ export default function SettingsScreen({ navigation }) {
       });
       
       if (result.success) {
-        // Limpar campos e fechar modal
+        // Limpar campos 
+        const savedEmail = registerEmail;
+        const savedPassword = registerPassword;
+        
         setRegisterName('');
         setRegisterEmail('');
         setRegisterPassword('');
         setRegisterConfirmPassword('');
+        
+        // Fechar o modal de registro e abrir o de login
         setIsRegistrationModalVisible(false);
         
-        // Exibir mensagem de sucesso e perguntar se deseja fazer login
+        // Preencher os campos de login com as credenciais do registro
+        setLoginEmail(savedEmail);
+        setLoginPassword(savedPassword);
+        
+        // Mostrar o modal de login
+        setIsLoginModalVisible(true);
+        
+        // Mostrar mensagem de sucesso
         Alert.alert(
           'Registro concluído',
-          'Sua conta foi criada com sucesso. Deseja fazer login agora?',
-          [
-            {
-              text: 'Mais tarde',
-              style: 'cancel'
-            },
-            {
-              text: 'Sim, fazer login',
-              onPress: () => setIsLoginModalVisible(true)
-            }
-          ]
+          'Sua conta foi criada com sucesso. Por favor, faça login.'
         );
       } else {
         setRegisterError(result.error || 'Erro no registro');
