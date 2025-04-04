@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@expo-google-fonts/encode-sans-expanded": "^0.2.3",
+    "@expo-google-fonts/exo": "^0.3.0",
+    "@expo-google-fonts/orbitron": "^0.3.0",
     "@expo-google-fonts/ramabhadra": "^0.2.3",
     "@expo/metro-runtime": "~4.0.1",
     "@react-native-async-storage/async-storage": "^2.1.2",
