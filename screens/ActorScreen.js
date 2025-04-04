@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
+import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../contexts/ThemeContext';
 
 // O correto seria usar um .env, mas para o propósito do projeto isso vai servir
@@ -122,7 +123,7 @@ export default function ActorScreen({ route, navigation }) {
         borderBottomColor: theme.colors.border
       }]}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Text style={[styles.backButton, { color: theme.colors.primary }]}>←</Text>
+          <Ionicons name="chevron-back" size={28} color={theme.colors.primary} />
         </TouchableOpacity>
         <Text style={[styles.headerTitle, { color: theme.colors.primary }]}>Perfil do Ator</Text>
       </View>
@@ -229,13 +230,10 @@ const styles = StyleSheet.create({
     padding: 16,
     borderBottomWidth: 1,
   },
-  backButton: {
-    fontSize: 24,
-    marginRight: 16,
-  },
   headerTitle: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginLeft: 16,
     fontFamily: 'Ramabhadra_400Regular',
   },
   loadingContainer: {
