@@ -5,12 +5,15 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 import { useFonts, EncodeSansExpanded_400Regular, EncodeSansExpanded_500Medium } from '@expo-google-fonts/encode-sans-expanded';
 import { Ramabhadra_400Regular } from '@expo-google-fonts/ramabhadra';
+import { Orbitron_700Bold } from '@expo-google-fonts/orbitron';
+import { Exo_700Bold } from '@expo-google-fonts/exo';
 import { View, Text, ActivityIndicator } from 'react-native';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 import { AuthProvider } from './contexts/AuthContext';
 import { FavoritesProvider } from './contexts/FavoritesContext';
 
 // Importar as telas
+import HomeScreen from './screens/HomeScreen';
 import MovieScreen from './screens/MovieScreen';
 import ActorScreen from './screens/ActorScreen';
 import FavoritesScreen from './screens/FavoritesScreen';
@@ -22,7 +25,8 @@ const Stack = createStackNavigator();
 // Stack de navegação para filmes e atores
 function MoviesStack() {
   return (
-    <Stack.Navigator initialRouteName="Movies" screenOptions={{ headerShown: false }}>
+    <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Movies" component={MovieScreen} />
       <Stack.Screen name="ActorProfile" component={ActorScreen} />
     </Stack.Navigator>
@@ -94,7 +98,9 @@ export default function App() {
   const [fontsLoaded] = useFonts({
     EncodeSansExpanded_400Regular,
     EncodeSansExpanded_500Medium,
-    Ramabhadra_400Regular
+    Ramabhadra_400Regular,
+    Orbitron_700Bold,
+    Exo_700Bold,
   });
 
   if (!fontsLoaded) {
